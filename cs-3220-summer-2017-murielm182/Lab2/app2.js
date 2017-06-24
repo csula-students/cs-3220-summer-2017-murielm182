@@ -58,10 +58,11 @@ class Cart {
     removeItem (item) {
         // TODO: logic to remove an item from cart
         // call render method when the item is removed to update view
-        var add=this.items;
-        add=add.filter(a=> a != add[item]);
-        console.log(add);
-        this.store.cartItems=add;
+        var fill = this.items;
+        fill = fill.filter(a => a != fill[item]);
+        console.log(fill);
+        this.store.cartItems = fill;
+        window.location.reload();
         this.render();
     }
 
@@ -71,24 +72,33 @@ class Cart {
 
     // render a list of item under root element
     render () {
+        
         console.log(this.store.cartItems);
         let tbody = this.root.querySelector('tbody');
         // using innerHTML to render a list of table row item under tbody
-        var dataset=this.store.cartItems;
-        if(dataset==null)
-        return;
-        var tbodytext="";
-        for(var i = 0;i<dataset.length;i++)
-        {
-        tbody.innerHTML += `<tr class="item">
+        var dataset = this.store.cartItems;
+        for (var i = 0; i < dataset.length; i++) {
+            tbody.innerHTML += `<tr class="item">
             <td>${dataset[i].name}</td>
             <td>${dataset[i].price}</td>
-            <td><button class="delete-item" data-index=$[i]>Remove Item</button></td>
-            
+            <td><button class="delete-button" data-index=${i} >Delete</button></td>
         <tr>`
+        }
+        let deletebutton = document.querySelectorAll('.delete-button');
+        deletebutton.forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('You are removing an item from cart' )
+                this.removeItem(btn.dataset.index);
+            });
+        });
+
+
+    
     }
-    }
+
+    
 }
+
 
 class CheckoutButton {
     constructor(root, store) {
@@ -111,7 +121,7 @@ class CheckoutButton {
         let cartItems = this.store.cartItems || [];
         // TODO: replace with actual item
         console.log(this.root.dataset);
-        cartItems.push({
+        cartItems.push({//push = attaching item to the end of the list
             name: this.root.dataset.name,
             price: this.root.dataset.price
         });
@@ -151,14 +161,17 @@ class StatusTable {
 // DOMContentLoaded event will allow us to run the following function when
 // everything is ready. Think of the following code will only be executed by
 // the end of document
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {//entry point for a function
     // use querySelector to find the table element (preferably by id selector)
     // let statusTable = document.querySelector('');
     // // use querySelector to find the cart element (preferably by id selector)
-    let cart = document.querySelector('.cart-table');
-    let checkoutButtons = document.querySelectorAll('.checkout-button');
+    console.log('Entry Point');
+    let cart = document.querySelector('.cart-table');//class name in order html table name
+    let checkoutButtons = document.querySelectorAll('.checkout-button');//class name 
+    console.log(cart);
+    console.log(checkoutButtons);
 
-    let store = new Store(window.localStorage);
+    let store = new Store(window.localStorage);//store variable
     // if (table) {
     //     new StatusTable(table, store);
     // }
