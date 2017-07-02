@@ -51,7 +51,7 @@ footer {
 td{
 	white-space: pre;
 }
-.checkout-button, .delete-button
+.checkout-button, .delete-button, .add_ing
 {
 	background-color: #4CAF50;
 font-size: 12px;
