@@ -51,7 +51,7 @@ footer {
 td{
 	white-space: pre;
 }
-.checkout-button 
+.checkout-button, .delete-button, .add_ing, .addfood
 {
 	background-color: #4CAF50;
 font-size: 12px;
@@ -62,7 +62,7 @@ table {
 	width: 100%;
 	text-align:center;
 }
-table.cart-table td,tr
+table.tabel2 td,tr
 {
 	background-color: 	#C5E3BF;
 font-size:15px;
@@ -73,3 +73,8 @@ table.tabel3 td,tr
 	background-color: 	#C5E3BF;
 font-size:15px;
 }
+
+#addFood {
+      background-color: #CBFDCB;
+      
+    }
