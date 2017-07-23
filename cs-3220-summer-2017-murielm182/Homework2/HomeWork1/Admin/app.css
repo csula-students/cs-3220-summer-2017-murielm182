@@ -1,0 +1,80 @@
+.logo
+{
+	width:80px;
+	height:80px;
+}
+.container
+{
+	width: 100em;
+	margin: 0 auto;
+}
+header{
+	max-width: 100%;
+	margin: 0;
+	display:flex;
+	float: left;
+	background-color: #98FB98;
+}
+
+li{
+	display:inline-block;
+}
+
+
+.fill
+{
+	flex: 1;
+}
+
+nav {
+    position: absolute;
+    top: 80px;
+    left: 1100px;
+    right: 0px;
+    bottom: 0;
+    min-width: 800px;
+    text-align: left;
+    height: 20px;
+    padding: 10px 20px;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  right:0;
+  width: 100%;
+  height: 40px;
+  background-color: #98FB98;
+  font-size: 10px;
+}
+
+td{
+	white-space: pre;
+}
+.checkout-button, .delete-button, .add_ing, .addfood
+{
+	background-color: #4CAF50;
+font-size: 12px;
+padding: 10px 24px;
+}
+table {
+	border: 1px solid #red;
+	width: 100%;
+	text-align:center;
+}
+table.tabel2 td,tr
+{
+	background-color: 	#C5E3BF;
+font-size:15px;
+}
+table.tabel3 td,tr
+{
+
+	background-color: 	#C5E3BF;
+font-size:15px;
+}
+
+#addFood {
+      background-color: #CBFDCB;
+      
+    }
