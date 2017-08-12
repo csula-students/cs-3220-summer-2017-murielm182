@@ -42,6 +42,7 @@ class Cart {
         this.store = store;
         this.items = this.store.cartItems;
         this.init();
+
     }
 
     init () {
@@ -60,9 +61,9 @@ class Cart {
         // call render method when the item is removed to update view
         var fill = this.items;
         fill = fill.filter(a => a != fill[item]);
-        console.log(fill);
-        this.store.cartItems = fill;
-        window.location.reload();
+        this.store.cartItems=fill;
+        console.log(this.store.cartItems);
+        location.reload(false);
         this.render();
     }
 
@@ -77,13 +78,17 @@ class Cart {
         let tbody = this.root.querySelector('tbody');
         // using innerHTML to render a list of table row item under tbody
         var dataset = this.store.cartItems;
+
+            tbody.innerHTML=``;
         for (var i = 0; i < dataset.length; i++) {
+        
             tbody.innerHTML += `<tr class="item">
             <td>${dataset[i].name}</td>
             <td>${dataset[i].price}</td>
-            <td><button class="delete-button" data-index=${i} >Delete</button></td>
+            <td img src=${dataset[i].img}>${dataset[i].name}</td>
+            <td><button class="delete-button" data-index="${i}" >Remove</button></td>
         <tr>`
-        }
+}
         let deletebutton = document.querySelectorAll('.delete-button');
         deletebutton.forEach(btn => {
             btn.addEventListener('click', () => {
